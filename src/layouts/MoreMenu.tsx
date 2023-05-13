@@ -1,7 +1,5 @@
-import { DotsHorizontalIcon } from '@heroicons/react/solid';
-import { Trans } from '@lingui/macro';
 import { useLingui } from '@lingui/react';
-import { Button, ListItemIcon, ListItemText, SvgIcon } from '@mui/material';
+import { ListItemIcon, ListItemText, SvgIcon } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import React from 'react';
@@ -16,9 +14,6 @@ export function MoreMenu() {
 
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    setAnchorEl(event.currentTarget);
-  };
   const handleClose = () => {
     setAnchorEl(null);
   };
