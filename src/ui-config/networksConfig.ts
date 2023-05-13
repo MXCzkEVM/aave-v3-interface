@@ -51,9 +51,9 @@ export type NetworkConfig = {
 export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
-  [ChainId.zkevm_testnet]:{
+  [ChainId.zkevm_testnet]: {
     name: 'Wannsee',
-    privateJsonRPCUrl: 'https://eth-mainnet.gateway.pokt.network/v1/lb/62b3314e123e6f00397f19ca',
+    privateJsonRPCUrl: 'https://wannsee-rpc.mxc.com',
     publicJsonRPCUrl: [
       'https://rpc.ankr.com/eth',
       'https://rpc.flashbots.net',
