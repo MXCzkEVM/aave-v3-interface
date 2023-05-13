@@ -59,6 +59,7 @@ export enum CustomMarket {
   proto_scroll_alpha_v3 = 'proto_scroll_alpha_v3',
   proto_sepolia_v3 = 'proto_sepolia_v3',
   // v3 mainnets
+  proto_wannsee_v3 = 'proto_wannsee_v3',
   proto_mainnet_v3 = 'proto_mainnet_v3',
   proto_optimism_v3 = 'proto_optimism_v3',
   proto_fantom_v3 = 'proto_fantom_v3',
@@ -82,6 +83,33 @@ export enum CustomMarket {
 export const marketsData: {
   [key in keyof typeof CustomMarket]: MarketDataType;
 } = {
+  [CustomMarket.proto_wannsee_v3]: {
+    marketTitle: 'Wannsee',
+    chainId: ChainId.zkevm_testnet,
+    v3: true,
+    enabledFeatures: {
+      governance: false,
+      staking: false,
+      liquiditySwap: true,
+      collateralRepay: true,
+      incentives: true,
+    },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: markets.AaveV3Ethereum.POOL_ADDRESSES_PROVIDER,
+      LENDING_POOL: markets.AaveV3Ethereum.POOL,
+      WETH_GATEWAY: markets.AaveV3Ethereum.WETH_GATEWAY,
+      REPAY_WITH_COLLATERAL_ADAPTER: markets.AaveV3Ethereum.REPAY_WITH_COLLATERAL_ADAPTER,
+      SWAP_COLLATERAL_ADAPTER: markets.AaveV3Ethereum.SWAP_COLLATERAL_ADAPTER,
+      WALLET_BALANCE_PROVIDER: markets.AaveV3Ethereum.WALLET_BALANCE_PROVIDER,
+      UI_POOL_DATA_PROVIDER: markets.AaveV3Ethereum.UI_POOL_DATA_PROVIDER,
+      UI_INCENTIVE_DATA_PROVIDER: markets.AaveV3Ethereum.UI_INCENTIVE_DATA_PROVIDER,
+      COLLECTOR: markets.AaveV3Ethereum.COLLECTOR,
+    },
+    // halIntegration: {
+    //   URL: 'https://app.hal.xyz/recipes/aave-track-your-health-factor',
+    //   marketName: 'aavev3',
+    // },
+  },
   [CustomMarket.proto_mainnet_v3]: {
     marketTitle: 'Ethereum',
     chainId: ChainId.mainnet,

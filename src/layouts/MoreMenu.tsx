@@ -25,7 +25,7 @@ export function MoreMenu() {
 
   return (
     <>
-      <Button
+      {/* <Button
         aria-label="more"
         id="more-button"
         aria-controls={open ? 'more-menu' : undefined}
@@ -45,7 +45,7 @@ export function MoreMenu() {
         <SvgIcon color="inherit" sx={{ ml: 1 }}>
           <DotsHorizontalIcon />
         </SvgIcon>
-      </Button>
+      </Button> */}
 
       <Menu
         id="more-menu"

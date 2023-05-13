@@ -22,8 +22,8 @@ export enum WalletType {
   READ_ONLY_MODE = 'read_only_mode',
 }
 
-const APP_NAME = 'Aave';
-const APP_LOGO_URL = 'https://aave.com/favicon.ico';
+const APP_NAME = 'MXC';
+const APP_LOGO_URL = 'https://www.mxc.org/';
 
 const mockProvider = {
   request: Promise.resolve(null),
