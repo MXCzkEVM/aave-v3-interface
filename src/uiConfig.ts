@@ -1,3 +1,3 @@
 export const uiConfig = {
-  appLogo: '/aaveLogo.svg',
+  appLogo: '/mxc_logo_light.svg',
 };

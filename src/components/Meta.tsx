@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 
 type MetaProps = {
-  title: string;
+  title?: string;
   description: string;
   imageUrl?: string;
   timestamp?: string;
@@ -11,9 +11,9 @@ type MetaProps = {
 export function Meta({ title, description, imageUrl, timestamp }: MetaProps) {
   return (
     <Head>
-      <title>Aave - {title}</title>
+      <title>MXC Stable Coin</title>
       <meta name="description" content={description} key="description" />
-      <meta property="og:title" content={`Aave - ${title}`} key="title" />
+      <meta property="og:title" content={`MXC Stable Coin`} key="title" />
       <meta property="og:description" content={description} key="ogdescription" />
       {imageUrl && <meta property="og:image" content={imageUrl} key="ogimage" />}
       {imageUrl && <meta name="twitter:image" content={imageUrl} key="twitterimage" />}
