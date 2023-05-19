@@ -61,9 +61,13 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        {/* This script will check all MXC operations and if the system experiences any downtime It will notify with a small notification*/}
+        <script src="https://mxc.instatus.com/en/13076080/widget/script.js" async />
       </Head>
       <Meta
-        description={'MXC zkEVM is a IoT focused ZK-Rollup on the top of Arbitrum. AAVE provided support for the framework.'}
+        description={
+          'MXC zkEVM is a IoT focused ZK-Rollup on the top of Arbitrum. AAVE provided support for the framework.'
+        }
       />
       <LanguageProvider>
         <QueryClientProvider client={queryClient}>
