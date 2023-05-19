@@ -118,14 +118,14 @@ export function AppHeader() {
           aria-label="Go to homepage"
           sx={{
             lineHeight: 0,
-            mt: 5,
+            // mt: 5,
             mr: 3,
             transition: '0.3s ease all',
             '&:hover': { opacity: 0.7 },
           }}
           onClick={() => setMobileMenuOpen(false)}
         >
-          <img src={uiConfig.appLogo} alt="An SVG of an eye" height={50} />
+          <img src={uiConfig.appLogo} alt="An SVG of an eye" width={60} />
         </Box>
         <Box sx={{ mr: sm ? 1 : 3 }}>
           {ENABLE_TESTNET && (

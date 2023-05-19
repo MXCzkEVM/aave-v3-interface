@@ -177,15 +177,17 @@ export const createPoolSlice: StateCreator<
         chainId: currentChainId,
       });
       const lendingPoolAddressProvider = currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER;
+      // console.log(lendingPoolAddressProvider, "lendingPoolAddressProvider")
       const promises: Promise<void>[] = [];
+
       try {
         promises.push(
           poolDataProviderContract
             .getReservesHumanized({
               lendingPoolAddressProvider,
             })
-            .then((reservesResponse) =>
-              set((state) =>
+            .then((reservesResponse) => {
+              return set((state) =>
                 produce(state, (draft) => {
                   if (!draft.data.get(currentChainId)) draft.data.set(currentChainId, new Map());
                   if (!draft.data.get(currentChainId)?.get(lendingPoolAddressProvider)) {
@@ -203,14 +205,14 @@ export const createPoolSlice: StateCreator<
                   }
                 })
               )
-            )
+            })
         );
         promises.push(
           uiIncentiveDataProviderContract
             .getReservesIncentivesDataHumanized({
               lendingPoolAddressProvider: currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
             })
-            .then((reserveIncentivesResponse) =>
+            .then((reserveIncentivesResponse) => {
               set((state) =>
                 produce(state, (draft) => {
                   if (!draft.data.get(currentChainId)) draft.data.set(currentChainId, new Map());
@@ -226,7 +228,7 @@ export const createPoolSlice: StateCreator<
                   }
                 })
               )
-            )
+            })
         );
         if (account) {
           promises.push(

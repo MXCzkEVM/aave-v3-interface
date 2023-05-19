@@ -63,7 +63,9 @@ export default function MyApp(props: MyAppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <Meta
-        description={'MXC zkEVM is a IoT focused ZK-Rollup on the top of Arbitrum. AAVE provided support for the framework.'}
+        description={
+          'MXC zkEVM is a IoT focused ZK-Rollup on the top of Arbitrum. AAVE provided support for the framework.'
+        }
       />
       <LanguageProvider>
         <QueryClientProvider client={queryClient}>

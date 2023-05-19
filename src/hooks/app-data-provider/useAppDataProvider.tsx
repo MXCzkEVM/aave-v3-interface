@@ -81,15 +81,18 @@ export const AppDataProvider: React.FC = ({ children }) => {
     eModes,
     formattedPoolReserves,
     user,
-  ] = useRootStore((state) => [
-    selectCurrentReserves(state),
-    selectCurrentBaseCurrencyData(state),
-    selectCurrentUserReserves(state),
-    selectCurrentUserEmodeCategoryId(state),
-    selectEmodes(state),
-    selectFormattedReserves(state, currentTimestamp),
-    selectUserSummaryAndIncentives(state, currentTimestamp),
-  ]);
+  ] = useRootStore((state) => {
+    // console.log(selectFormattedReserves(state, currentTimestamp));
+    return [
+      selectCurrentReserves(state),
+      selectCurrentBaseCurrencyData(state),
+      selectCurrentUserReserves(state),
+      selectCurrentUserEmodeCategoryId(state),
+      selectEmodes(state),
+      selectFormattedReserves(state, currentTimestamp),
+      selectUserSummaryAndIncentives(state, currentTimestamp),
+    ];
+  });
 
   const proportions = user.userReservesData.reduce(
     (acc, value) => {
