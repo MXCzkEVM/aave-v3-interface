@@ -11,6 +11,7 @@ import Head from 'next/head';
 import * as React from 'react';
 import { AddressBlocked } from 'src/components/AddressBlocked';
 import { Meta } from 'src/components/Meta';
+import { SupportButton } from 'src/components/SupportButton';
 import { BorrowModal } from 'src/components/transactions/Borrow/BorrowModal';
 import { ClaimRewardsModal } from 'src/components/transactions/ClaimRewards/ClaimRewardsModal';
 import { CollateralChangeModal } from 'src/components/transactions/CollateralChange/CollateralChangeModal';
@@ -33,13 +34,13 @@ import { SharedDependenciesProvider } from 'src/ui-config/SharedDependenciesProv
 import createEmotionCache from '../src/createEmotionCache';
 import { AppGlobalStyles } from '../src/layouts/AppGlobalStyles';
 import { LanguageProvider } from '../src/libs/LanguageProvider';
-import { SupportButton } from 'src/components/SupportButton';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
+  
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,8 +70,7 @@ export default function MyApp(props: MyAppProps) {
         description={
           'MXC zkEVM is a IoT focused ZK-Rollup on the top of Arbitrum. AAVE provided support for the framework.'
         }
-      />
-      <SupportButton/>
+      /> 
       <LanguageProvider>
         <QueryClientProvider client={queryClient}>
           <Web3ReactProvider getLibrary={getWeb3Library}>
@@ -83,7 +83,7 @@ export default function MyApp(props: MyAppProps) {
                         <AppDataProvider>
                           <GasStationProvider>
                             <SharedDependenciesProvider>
-                              {getLayout(<Component {...pageProps} />)}
+                              {getLayout( <><SupportButton /><Component {...pageProps} /></>)} 
                               <SupplyModal />
                               <WithdrawModal />
                               <BorrowModal />
