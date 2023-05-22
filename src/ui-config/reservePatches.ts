@@ -77,6 +77,8 @@ export const SYMBOL_NAME_MAP: { [key: string]: string } = {
   ZRX: '0x Coin',
   '1INCH': '1inch Network',
   LUSD: 'LUSD Stablecoin',
+
+  DHX: 'DataHighway token'
 };
 
 export function fetchIconSymbolAndName({

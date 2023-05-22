@@ -35,10 +35,10 @@ export function Base64Token({
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (!loading && ref.current && ref.current?.contentDocument) {
-      if (aToken) {
-        // eslint-disable-next-line
-        const inner = ref.current?.contentDocument?.childNodes?.[0] as any;
-        const oldWidth = inner.getAttribute('width');
+      // eslint-disable-next-line
+      const inner = ref.current?.contentDocument?.childNodes?.[0] as any;
+      if (aToken && inner && inner.getAttribute) {
+        const oldWidth = inner?.getAttribute('width');
         const oldHeight = inner.getAttribute('height');
         const vb = inner.getAttribute('viewBox');
         inner.setAttribute('x', 25);
@@ -48,10 +48,8 @@ export function Base64Token({
         if (!vb) {
           inner.setAttribute('viewBox', `0 0 ${oldWidth} ${oldHeight}`);
         }
-
         aRef.current?.appendChild(inner);
         const s = new XMLSerializer().serializeToString(aRef.current as unknown as Node);
-
         onImageGenerated(
           `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(s)))}`
         );
