@@ -69,8 +69,7 @@ export const networkConfigs: any = {
     explorerLink: 'https://wannsee-explorer.mxc.com',
     ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
     networkLogoPath: '/icons/networks/mxc.svg',
-    isTestnet: true,
-    Faucet: true
+    // isTestnet: true,
   },
 
   '1337': {
