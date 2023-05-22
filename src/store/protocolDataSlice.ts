@@ -10,6 +10,7 @@ import { StateCreator } from 'zustand';
 
 import { CustomMarket, MarketDataType } from '../ui-config/marketsConfig';
 import { NetworkConfig } from '../ui-config/networksConfig';
+import { CurrentMarket } from '../ui-config/config';
 import { RootStore } from './root';
 import { setQueryParameter } from './utils/queryParams';
 
@@ -29,7 +30,9 @@ export const createProtocolDataSlice: StateCreator<
   [],
   ProtocolDataSlice
 > = (set, get) => {
-  const initialMarket = availableMarkets[0];
+  // const initialMarket = availableMarkets[0];
+  const initialMarket = CurrentMarket;
+  console.log(initialMarket, "initialMarket")
   const initialMarketData = marketsData[initialMarket];
   return {
     currentMarket: initialMarket,

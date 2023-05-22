@@ -82,7 +82,7 @@ export const AppDataProvider: React.FC = ({ children }) => {
     formattedPoolReserves,
     user,
   ] = useRootStore((state) => {
-    // console.log(selectFormattedReserves(state, currentTimestamp));
+    // console.log(state);
     return [
       selectCurrentReserves(state),
       selectCurrentBaseCurrencyData(state),
