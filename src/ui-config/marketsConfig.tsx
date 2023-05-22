@@ -9,7 +9,8 @@ export type MarketDataType = {
   v3?: boolean;
   marketTitle: string;
   // the network the market operates on
-  chainId: ChainId;
+  // chainId: ChainId;
+  chainId: any;
   enabledFeatures?: {
     liquiditySwap?: boolean;
     staking?: boolean;
@@ -49,6 +50,9 @@ export type MarketDataType = {
 };
 
 export enum CustomMarket {
+  proto_local_v3 = 'proto_local_v3',
+  proto_wannsee_v3 = 'proto_wannsee_v3',
+
   // v3 test networks, all v3.0.1 with permissioned faucet
   proto_arbitrum_goerli_v3 = 'proto_arbitrum_goerli_v3',
   proto_mumbai_v3 = 'proto_mumbai_v3',
@@ -59,7 +63,6 @@ export enum CustomMarket {
   proto_scroll_alpha_v3 = 'proto_scroll_alpha_v3',
   proto_sepolia_v3 = 'proto_sepolia_v3',
   // v3 mainnets
-  proto_wannsee_v3 = 'proto_wannsee_v3',
   proto_mainnet_v3 = 'proto_mainnet_v3',
   proto_optimism_v3 = 'proto_optimism_v3',
   proto_fantom_v3 = 'proto_fantom_v3',
@@ -83,9 +86,9 @@ export enum CustomMarket {
 export const marketsData: {
   [key in keyof typeof CustomMarket]: MarketDataType;
 } = {
-  [CustomMarket.proto_wannsee_v3]: {
-    marketTitle: 'Wannsee',
-    chainId: ChainId.zkevm_testnet,
+  [CustomMarket.proto_local_v3]: {
+    marketTitle: 'Local',
+    chainId: 1337,
     v3: true,
     enabledFeatures: {
       governance: false,
@@ -95,13 +98,44 @@ export const marketsData: {
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x6281f1f6B7dC16a020CCd40e400502615695BB89', //POOL_ADDRESSES_PROVIDER
-      LENDING_POOL: '0xcd49B6B582b4bDfE2dd74449F2B7037f2301904C', //POOL
-      WETH_GATEWAY: '0xC220E9Be0b9cE3341Ba51709731Fb936B6Eb4B13', //WETH_GATEWAY
-      WALLET_BALANCE_PROVIDER: '0xcd0Bb8E1E2E2745aC2abE1993Ddfb064c0222fd9', //WALLET_BALANCE_PROVIDER
-      UI_POOL_DATA_PROVIDER: '0x476452D8af32327de09343A7baCAC8C497Af77E7', //UI_POOL_DATA_PROVIDER
-      UI_INCENTIVE_DATA_PROVIDER: '0xbb465DEd47B51bB4C116eA81Ac281BFAd6448D73', //UI_INCENTIVE_DATA_PROVIDER
-      COLLECTOR: '0x1EB2328D377e00B2aDD74839De64BeeD19F5d591', //COLLECTOR
+      LENDING_POOL_ADDRESS_PROVIDER: '0xbaFFE20374276bc4a6F9A4e7886db9d67268cC35',
+      LENDING_POOL: '0x7a88da6512908d57Ff51C60Cf5Dd06F2Cf539d42', //POOL
+      WETH_GATEWAY: '0x49424CC3CC0Adb5d5eD549Fb9778c09838EeB468', //WETH_GATEWAY
+      WALLET_BALANCE_PROVIDER: '0x5166c891efad6fA055B0f119DF62010320343eB1', //WALLET_BALANCE_PROVIDER
+      UI_POOL_DATA_PROVIDER: '0x0b4f4249864A85B8364c5487DF3BDe52088B8Dda', //UI_POOL_DATA_PROVIDER
+      UI_INCENTIVE_DATA_PROVIDER: '0x6EfF4eEFd827D4B8410fe4e6B5387937505aC0FA', //UI_INCENTIVE_DATA_PROVIDER
+      // COLLECTOR: '0x1EB2328D377e00B2aDD74839De64BeeD19F5d591', //COLLECTOR
+    },
+  },
+  [CustomMarket.proto_wannsee_v3]: {
+    marketTitle: 'Wannsee',
+    // chainId: ChainId.zkevm_testnet,
+    chainId: 5167003,
+    v3: true,
+    enabledFeatures: {
+      governance: false,
+      staking: false,
+      liquiditySwap: true,
+      collateralRepay: true,
+      incentives: true,
+    },
+    // addresses: {
+    //   LENDING_POOL_ADDRESS_PROVIDER: '0x6281f1f6B7dC16a020CCd40e400502615695BB89', //POOL_ADDRESSES_PROVIDER
+    //   LENDING_POOL: '0xcd49B6B582b4bDfE2dd74449F2B7037f2301904C', //POOL
+    //   WETH_GATEWAY: '0xC220E9Be0b9cE3341Ba51709731Fb936B6Eb4B13', //WETH_GATEWAY
+    //   WALLET_BALANCE_PROVIDER: '0xcd0Bb8E1E2E2745aC2abE1993Ddfb064c0222fd9', //WALLET_BALANCE_PROVIDER
+    //   UI_POOL_DATA_PROVIDER: '0x476452D8af32327de09343A7baCAC8C497Af77E7', //UI_POOL_DATA_PROVIDER
+    //   UI_INCENTIVE_DATA_PROVIDER: '0xbb465DEd47B51bB4C116eA81Ac281BFAd6448D73', //UI_INCENTIVE_DATA_PROVIDER
+    //   COLLECTOR: '0x1EB2328D377e00B2aDD74839De64BeeD19F5d591', //COLLECTOR
+    // },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: '0xFe55653FC5251b54BF37115599E7466ed3727f2A',
+      LENDING_POOL: '0x25d8456Cca7617fc194DBcA3C504AA6a18539Dd8',
+      WETH_GATEWAY: '0x6282151FD846FFfc292A4DED8d4234ED0ce11104',
+      WALLET_BALANCE_PROVIDER: '0xa905F29F2F99BC6ee97144B85F1dC892567Be3F3',
+      UI_POOL_DATA_PROVIDER: '0xd5b3b50c27731380ce5d500e3088b2C5da97875D',
+      UI_INCENTIVE_DATA_PROVIDER: '0x251276b91B055884064e05cFd61Df0Cf21737815',
+      // COLLECTOR: '', //COLLECTOR
     },
     // halIntegration: {
     //   URL: 'https://app.hal.xyz/recipes/aave-track-your-health-factor',

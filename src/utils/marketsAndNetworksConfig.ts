@@ -122,17 +122,18 @@ export const availableMarkets = Object.keys(marketsData).filter((key) =>
 
 const linkBuilder =
   ({ baseUrl, addressPrefix = 'address', txPrefix = 'tx' }: ExplorerLinkBuilderConfig) =>
-  ({ tx, address }: ExplorerLinkBuilderProps): string => {
-    if (tx) {
-      return `${baseUrl}/${txPrefix}/${tx}`;
-    }
-    if (address) {
-      return `${baseUrl}/${addressPrefix}/${address}`;
-    }
-    return baseUrl;
-  };
+    ({ tx, address }: ExplorerLinkBuilderProps): string => {
+      if (tx) {
+        return `${baseUrl}/${txPrefix}/${tx}`;
+      }
+      if (address) {
+        return `${baseUrl}/${addressPrefix}/${address}`;
+      }
+      return baseUrl;
+    };
 
-export function getNetworkConfig(chainId: ChainId): NetworkConfig {
+// export function getNetworkConfig(chainId: ChainId): NetworkConfig {
+export function getNetworkConfig(chainId: any): NetworkConfig {
   const config = networkConfigs[chainId];
   if (!config) {
     // this case can only ever occure when a wallet is connected with a unknown chainId which will not allow interaction
@@ -170,12 +171,12 @@ export const getProvider = (chainId: ChainId): ethersProviders.Provider => {
     if (config.privateJsonRPCUrl) {
       chainProviders.push(config.privateJsonRPCUrl);
     }
-    if (config.publicJsonRPCUrl.length) {
+    if (config.publicJsonRPCUrl && config.publicJsonRPCUrl.length) {
       config.publicJsonRPCUrl.map((rpc) => chainProviders.push(rpc));
     }
-    if (!chainProviders.length) {
-      throw new Error(`${chainId} has no jsonRPCUrl configured`);
-    }
+    // if (!chainProviders.length) {
+    //   throw new Error(`${chainId} has no jsonRPCUrl configured`);
+    // }
     if (chainProviders.length === 1) {
       providers[chainId] = new StaticJsonRpcProvider(chainProviders[0], chainId);
     } else {
@@ -191,62 +192,62 @@ export const getENSProvider = () => {
   return new StaticJsonRpcProvider(config.publicJsonRPCUrl[0], chainId);
 };
 
-const ammDisableProposal = 'https://app.aave.com/governance/proposal/44';
-const ustDisableProposal = 'https://app.aave.com/governance/proposal/75';
-const kncDisableProposal = 'https://app.aave.com/governance/proposal/69';
-const v2MainnetDisableProposal = 'https://app.aave.com/governance/proposal/111';
-const v2MainnetDisableProposal2 = 'https://app.aave.com/governance/proposal/125';
-const v2PolygonDisableProposal = 'https://app.aave.com/governance/proposal/124';
+// const ammDisableProposal = 'https://app.aave.com/governance/proposal/44';
+// const ustDisableProposal = 'https://app.aave.com/governance/proposal/75';
+// const kncDisableProposal = 'https://app.aave.com/governance/proposal/69';
+// const v2MainnetDisableProposal = 'https://app.aave.com/governance/proposal/111';
+// const v2MainnetDisableProposal2 = 'https://app.aave.com/governance/proposal/125';
+// const v2PolygonDisableProposal = 'https://app.aave.com/governance/proposal/124';
 
 export const frozenProposalMap: Record<string, string> = {
-  ['UST' + CustomMarket.proto_mainnet]: ustDisableProposal,
-  ['KNC' + CustomMarket.proto_mainnet]: kncDisableProposal,
-  ['UNIDAIUSDC' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIWBTCUSDC' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIDAIWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIUSDCWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIAAVEWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIBATWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNICRVWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNILINKWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIMKRWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIRENWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNISNXWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIUNIWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIWBTCWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['UNIYFIWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['BPTWBTCWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['BPTBALWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
-  ['BAL' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal,
-  ['CVX' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal,
-  ['REN' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal,
-  ['YFI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['CRV' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['ZRX' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['MANA' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['1INCH' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['BAT' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['SUSD' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['ENJ' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['GUSD' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['AMPL' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['RAI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['USDP' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['LUSD' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['XSUSHI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['DPI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['RENFIL' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['MKR' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['ENS' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['LINK' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['UNI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['SNX' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
-  ['BAL' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
-  ['CRV' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
-  ['DPI' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
-  ['GHST' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
-  ['LINK' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
-  ['XSUSHI' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
+  // ['UST' + CustomMarket.proto_mainnet]: ustDisableProposal,
+  // ['KNC' + CustomMarket.proto_mainnet]: kncDisableProposal,
+  // ['UNIDAIUSDC' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIWBTCUSDC' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIDAIWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIUSDCWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIAAVEWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIBATWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNICRVWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNILINKWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIMKRWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIRENWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNISNXWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIUNIWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIWBTCWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['UNIYFIWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['BPTWBTCWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['BPTBALWETH' + CustomMarket.proto_mainnet]: ammDisableProposal,
+  // ['BAL' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal,
+  // ['CVX' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal,
+  // ['REN' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal,
+  // ['YFI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['CRV' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['ZRX' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['MANA' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['1INCH' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['BAT' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['SUSD' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['ENJ' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['GUSD' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['AMPL' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['RAI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['USDP' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['LUSD' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['XSUSHI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['DPI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['RENFIL' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['MKR' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['ENS' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['LINK' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['UNI' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['SNX' + CustomMarket.proto_mainnet]: v2MainnetDisableProposal2,
+  // ['BAL' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
+  // ['CRV' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
+  // ['DPI' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
+  // ['GHST' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
+  // ['LINK' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
+  // ['XSUSHI' + CustomMarket.proto_polygon]: v2PolygonDisableProposal,
 };
 
 // reexport so we can forbit config import

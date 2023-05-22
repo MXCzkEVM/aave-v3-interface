@@ -32,13 +32,18 @@ export const createIncentiveSlice: StateCreator<
     });
     const promises: Promise<void>[] = [];
 
+    // console.log(currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER, "currentMarketData")
+
     try {
       promises.push(
         poolDataProviderContract
           .getReservesIncentivesDataHumanized({
             lendingPoolAddressProvider: currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
           })
-          .then((reserveIncentiveData) => set({ reserveIncentiveData }))
+          .then((reserveIncentiveData) => {
+            // console.log(reserveIncentiveData, "reserveIncentiveData")
+            return set({ reserveIncentiveData })
+          })
       );
       if (account) {
         promises.push(

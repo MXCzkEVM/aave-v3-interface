@@ -70,7 +70,7 @@ export default function MyApp(props: MyAppProps) {
         description={
           'MXC zkEVM is a IoT focused ZK-Rollup on the top of Arbitrum. AAVE provided support for the framework.'
         }
-      /> 
+      />
       <LanguageProvider>
         <QueryClientProvider client={queryClient}>
           <Web3ReactProvider getLibrary={getWeb3Library}>
