@@ -11,6 +11,7 @@ import Head from 'next/head';
 import * as React from 'react';
 import { AddressBlocked } from 'src/components/AddressBlocked';
 import { Meta } from 'src/components/Meta';
+import { SupportButton } from 'src/components/SupportButton';
 import { BorrowModal } from 'src/components/transactions/Borrow/BorrowModal';
 import { ClaimRewardsModal } from 'src/components/transactions/ClaimRewards/ClaimRewardsModal';
 import { CollateralChangeModal } from 'src/components/transactions/CollateralChange/CollateralChangeModal';
@@ -39,6 +40,7 @@ const clientSideEmotionCache = createEmotionCache();
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
+  
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -61,6 +63,8 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        {/* This script will check all MXC operations and if the system experiences any downtime It will notify with a small notification*/}
+        <script src="https://mxc.instatus.com/en/13076080/widget/script.js" async />
       </Head>
       <Meta
         description={
@@ -79,7 +83,7 @@ export default function MyApp(props: MyAppProps) {
                         <AppDataProvider>
                           <GasStationProvider>
                             <SharedDependenciesProvider>
-                              {getLayout(<Component {...pageProps} />)}
+                              {getLayout( <><SupportButton /><Component {...pageProps} /></>)} 
                               <SupplyModal />
                               <WithdrawModal />
                               <BorrowModal />
