@@ -50,6 +50,7 @@ export const SupplyAssetsList = () => {
     marketReferencePriceInUsd,
     loading: loadingReserves,
   } = useAppDataContext();
+
   const { walletBalances, loading } = useWalletBalances();
   const theme = useTheme();
   const downToXSM = useMediaQuery(theme.breakpoints.down('xsm'));
@@ -243,18 +244,16 @@ export const SupplyAssetsList = () => {
                   </Link>
                 </Trans>
               </Warning>
+            ) : // filteredSupplyReserves.length === 0 &&
+            isTestnet ? (
+              <Warning severity="info">
+                <Trans>Your {networkName} wallet is empty. Get free test assets at </Trans>{' '}
+                <Link href={ROUTES.faucet} style={{ fontWeight: 400 }}>
+                  <Trans>{networkName} Faucet</Trans>
+                </Link>
+              </Warning>
             ) : (
-              filteredSupplyReserves.length === 0 &&
-              (isTestnet ? (
-                <Warning severity="info">
-                  <Trans>Your {networkName} wallet is empty. Get free test assets at </Trans>{' '}
-                  <Link href={ROUTES.faucet} style={{ fontWeight: 400 }}>
-                    <Trans>{networkName} Faucet</Trans>
-                  </Link>
-                </Warning>
-              ) : (
-                <WalletEmptyInfo name={networkName} bridge={bridge} chainId={currentChainId} />
-              ))
+              <WalletEmptyInfo name={networkName} bridge={bridge} chainId={currentChainId} />
             )}
           </Box>
 
