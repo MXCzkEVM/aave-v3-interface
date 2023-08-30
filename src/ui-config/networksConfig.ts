@@ -52,6 +52,25 @@ export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;
 
 // export const networkConfigs: Record<string, BaseNetworkConfig> =
 export const networkConfigs: any = {
+  '18686': {
+    name: 'zkEVM Mainnet',
+    privateJsonRPCUrl: 'https://rpc.mxc.com',
+    publicJsonRPCUrl: [
+      'https://rpc.ankr.com/eth',
+      'https://rpc.flashbots.net',
+      'https://eth-mainnet.public.blastapi.io',
+      'https://cloudflare-eth.com/v1/mainnet',
+    ],
+    publicJsonRPCWSUrl: 'wss://eth-mainnet.alchemyapi.io/v2/demo',
+    baseUniswapAdapter: '',
+    baseAssetSymbol: 'MXC',
+    wrappedBaseAssetSymbol: 'WMXC',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://explorer.mxc.com',
+    // ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
+    networkLogoPath: '/icons/networks/mxc.svg',
+    isTestnet: false,
+  },
   '5167003': {
     name: 'Wannsee',
     privateJsonRPCUrl: 'https://wannsee-rpc.mxc.com',
@@ -79,10 +98,10 @@ export const networkConfigs: any = {
       'http://127.0.0.1:7545',
     ],
     isTestnet: true,
+    baseAssetSymbol: 'MXC',
+    wrappedBaseAssetSymbol: 'WMXC',
     // publicJsonRPCWSUrl: 'wss://eth-mainnet.alchemyapi.io/v2/demo',
     // baseUniswapAdapter: '0xc3efa200a60883a96ffe3d5b492b121d6e9a1f3f',
-    // baseAssetSymbol: 'MXC',
-    // wrappedBaseAssetSymbol: 'WMXC',
     // baseAssetDecimals: 18,
     // explorerLink: 'https://wannsee-explorer.mxc.com',
     // ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
