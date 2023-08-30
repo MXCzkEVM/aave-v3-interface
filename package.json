@@ -28,7 +28,9 @@
     "test:open": "DOTENV_CONFIG_PATH='.env.local' cypress open",
     "test:headless": "export DOTENV_CONFIG_PATH='../../../.env.local' && cypress run --config-file './cypress/configs/local/full.config.ts'",
     "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "vercel:mainnet": "cp .env.mainnet .env && cp vercel.mainnet.json .vercel/project.json && vercel --prod",
+    "vercel:testnet": "cp .env.testnet .env && cp vercel.testnet.json .vercel/project.json && vercel --prod"
   },
   "dependencies": {
     "@aave/contract-helpers": "1.17.3",

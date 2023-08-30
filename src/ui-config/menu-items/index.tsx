@@ -1,4 +1,5 @@
-import { BookOpenIcon, CreditCardIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
+// CreditCardIcon
+import { BookOpenIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
 import { t } from '@lingui/macro';
 import { ReactNode } from 'react';
 import { ROUTES } from 'src/components/primitives/Link';
@@ -78,13 +79,13 @@ const moreMenuItems: MoreMenuItem[] = [
     title: t`Github`,
     icon: <GithubIcon />,
   },
-  {
-    link: 'https://global.transak.com',
-    makeLink: (walletAddress) =>
-      `${process.env.NEXT_PUBLIC_TRANSAK_APP_URL}/?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&walletAddress=${walletAddress}&disableWalletAddressForm=true`,
-    title: t`Buy Crypto With Fiat`,
-    icon: <CreditCardIcon />,
-  },
+  // {
+  //   link: 'https://global.transak.com',
+  //   makeLink: (walletAddress) =>
+  //     `${process.env.NEXT_PUBLIC_TRANSAK_APP_URL}/?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&walletAddress=${walletAddress}&disableWalletAddressForm=true`,
+  //   title: t`Buy Crypto With Fiat`,
+  //   icon: <CreditCardIcon />,
+  // },
 ];
 
 export const moreMenuExtraItems: MoreMenuItem[] = [];
