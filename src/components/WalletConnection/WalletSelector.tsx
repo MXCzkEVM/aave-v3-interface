@@ -24,14 +24,26 @@ const WalletRow = ({ walletName, walletType }: WalletRowProps) => {
   const getWalletIcon = (walletType: WalletType) => {
     switch (walletType) {
       case WalletType.INJECTED:
-        return (
-          <img
-            src={`/icons/wallets/browserWallet.svg`}
-            width="24px"
-            height="24px"
-            alt={`browser wallet icon`}
-          />
-        );
+        if (walletName == 'AXS Wallet') {
+          return (
+            <img
+              src={`/icons/wallets/axs.svg`}
+              width="24px"
+              height="24px"
+              alt={`AXS wallet icon`}
+            />
+          );
+        } else {
+          return (
+            <img
+              src={`/icons/wallets/browserWallet.svg`}
+              width="24px"
+              height="24px"
+              alt={`browser wallet icon`}
+            />
+          );
+        }
+
       case WalletType.WALLET_CONNECT:
         return (
           <img
@@ -191,6 +203,7 @@ export const WalletSelector = () => {
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <TxModalTitle title="Connect a wallet" />
       {error && <Warning severity="error">{handleBlocking()}</Warning>}
+      <WalletRow key="axs_wallet" walletName="AXS Wallet" walletType={WalletType.INJECTED} />
       <WalletRow
         key="browser_wallet"
         walletName="Browser wallet"
