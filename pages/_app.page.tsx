@@ -34,7 +34,7 @@ import { SharedDependenciesProvider } from 'src/ui-config/SharedDependenciesProv
 import createEmotionCache from '../src/createEmotionCache';
 import { AppGlobalStyles } from '../src/layouts/AppGlobalStyles';
 import { LanguageProvider } from '../src/libs/LanguageProvider';
-
+import '../src/styles/index.css';
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 

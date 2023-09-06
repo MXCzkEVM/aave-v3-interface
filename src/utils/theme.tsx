@@ -181,7 +181,8 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         default: getColor('#F1F1F3', '#1B2030'),
         paper: getColor('#FFFFFF', '#292E41'),
         surface: getColor('#F7F7F9', '#383D51'),
-        header: getColor('#2B2D3C', '#1B2030'),
+        // header: getColor('#2B2D3C', '#1B2030'),
+        header: getColor('#2a0f69', '#1B2030'),
         disabled: getColor('#EAEBEF', '#EBEBEF14'),
       },
       divider: getColor('#EAEBEF', '#EBEBEF14'),
@@ -197,7 +198,8 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         standardInputLine: getColor('#383D511F', '#EBEBEF6B'),
       },
       gradients: {
-        aaveGradient: 'linear-gradient(248.86deg, #B6509E 10.51%, #2EBAC6 93.41%)',
+        // aaveGradient: 'linear-gradient(248.86deg, #B6509E 10.51%, #2EBAC6 93.41%)',
+        aaveGradient: '#f43178',
         newGradient: 'linear-gradient(79.67deg, #8C3EBC 0%, #007782 95.82%)',
       },
     },
@@ -571,6 +573,7 @@ export function getThemedComponents(theme: Theme) {
             display: 'flex',
             flexDirection: 'column',
             flex: 1,
+            backgroundColor: '#2a0f69',
             paddingBottom: '39px',
             [theme.breakpoints.up('xs')]: {
               paddingLeft: '8px',

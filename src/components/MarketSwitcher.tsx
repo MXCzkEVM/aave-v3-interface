@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from '@heroicons/react/outline';
+// import { ChevronDownIcon } from '@heroicons/react/outline';
 import { Trans } from '@lingui/macro';
 import {
   Box,
@@ -126,6 +126,7 @@ export const MarketSwitcher = () => {
       select
       aria-label="select market"
       data-cy="marketSelector"
+      disabled
       value={currentMarket}
       onChange={(e) => setCurrentMarket(e.target.value as unknown as CustomMarket)}
       sx={{
@@ -139,7 +140,7 @@ export const MarketSwitcher = () => {
         className: 'MarketSwitcher__select',
         IconComponent: (props) => (
           <SvgIcon fontSize="medium" {...props}>
-            <ChevronDownIcon />
+            {/* <ChevronDownIcon /> */}
           </SvgIcon>
         ),
         renderValue: (marketId) => {

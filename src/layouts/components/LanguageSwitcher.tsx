@@ -1,5 +1,5 @@
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
-import { t, Trans } from '@lingui/macro';
+import { Trans } from '@lingui/macro';
 import { useLingui } from '@lingui/react';
 import {
   Box,
@@ -12,14 +12,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import { dynamicActivateLanguage } from '../../libs/LanguageProvider';
-
-const langMap = {
-  en: t`English`,
-  es: t`Spanish`,
-  fr: t`French`,
-  el: t`Greek`,
-};
+import { dynamicActivateLanguage, LANG_MAP } from '../../libs/LanguageProvider';
 
 interface LanguageListItemProps {
   component?: typeof MenuItem | typeof ListItem;
@@ -38,7 +31,7 @@ export const LanguageListItem = ({ component = ListItem, onClick }: LanguageList
         <Trans>Language</Trans>
       </ListItemText>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        {i18n._(langMap[i18n.locale as keyof typeof langMap])}{' '}
+        {i18n._(LANG_MAP[i18n.locale as keyof typeof LANG_MAP])}{' '}
         <SvgIcon fontSize="small" sx={{ color: { xs: '#F1F1F3', md: 'text.primary' }, ml: 1 }}>
           <ChevronRightIcon />
         </SvgIcon>
@@ -75,7 +68,7 @@ export const LanguagesList = ({ component = ListItem, onClick }: LanguageListIte
         </ListItemText>
       </Box>
 
-      {Object.keys(langMap).map((lang) => (
+      {Object.keys(LANG_MAP).map((lang) => (
         <Box
           component={component}
           key={lang}
@@ -86,12 +79,12 @@ export const LanguagesList = ({ component = ListItem, onClick }: LanguageListIte
             '.MuiMenuItemIcon-root': { minWidth: 'unset' },
           }}
         >
-          <ListItemIcon
+          {/* <ListItemIcon
             sx={{ mr: 3, borderRadius: '2px', overflow: 'hidden', width: 20, height: 14 }}
           >
             <img src={`/icons/flags/${lang}.svg`} width="100%" height="100%" alt={`${lang} icon`} />
-          </ListItemIcon>
-          <ListItemText>{i18n._(langMap[lang as keyof typeof langMap])}</ListItemText>
+          </ListItemIcon> */}
+          <ListItemText>{i18n._(LANG_MAP[lang as keyof typeof LANG_MAP])}</ListItemText>
           {lang === i18n.locale && (
             <ListItemIcon sx={{ m: 0 }}>
               <SvgIcon fontSize="small" sx={{ color: { xs: '#F1F1F3', md: 'text.primary' } }}>

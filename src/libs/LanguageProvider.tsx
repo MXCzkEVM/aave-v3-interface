@@ -17,7 +17,35 @@ i18n.activate('en');
 
 export const DEFAULT_LOCALE = 'en';
 
+export const locales: any = {
+  en: 'English',
+  de: 'Deutsch',
+  nl: 'Nederlands',
+  tr: 'Türkçe',
+  zh_CN: '简体中文',
+  zh_TW: '繁体中文',
+  ko: '한국어',
+  ro: 'Română',
+  es: 'Español',
+  fr: 'Français',
+  it: 'Italiano',
+  ja: '日本語',
+  ru: 'Русский',
+  pt: 'Portugués',
+  id: 'Indonesio',
+  vi: 'Tiếng Việt',
+};
+
 export const SUPPORTED_LANGUAGES = ['en', 'es', 'fr', 'el'];
+// export const SUPPORTED_LANGUAGES = Object.keys(locales);
+
+// const langMap = {
+//   en: t`English`,
+//   es: t`Spanish`,
+//   fr: t`French`,
+//   el: t`Greek`,
+// };
+
 export const LANG_MAP = {
   en: 'English',
   es: 'Spanish',
