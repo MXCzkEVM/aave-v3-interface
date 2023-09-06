@@ -26,10 +26,10 @@ const WalletRow = ({ walletName, walletType }: WalletRowProps) => {
       case WalletType.INJECTED:
         return (
           <img
-            src={`/icons/wallets/browserWallet.svg`}
+            src={`/icons/wallets/axs.svg`}
             width="24px"
             height="24px"
-            alt={`browser wallet icon`}
+            alt={`AXS wallet icon`}
           />
         );
       case WalletType.WALLET_CONNECT:
@@ -192,8 +192,8 @@ export const WalletSelector = () => {
       <TxModalTitle title="Connect a wallet" />
       {error && <Warning severity="error">{handleBlocking()}</Warning>}
       <WalletRow
-        key="browser_wallet"
-        walletName="Browser wallet"
+        key="axs_wallet"
+        walletName="AXS Wallet"
         walletType={WalletType.INJECTED}
       />
       <WalletRow
