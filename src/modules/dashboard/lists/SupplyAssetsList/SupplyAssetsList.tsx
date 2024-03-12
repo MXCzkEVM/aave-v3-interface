@@ -173,8 +173,7 @@ export const SupplyAssetsList = () => {
   // Transform to the DashboardReserve schema so the sort utils can work with it
   const preSortedReserves = supplyReserves as DashboardReserve[];
   let sortedReserves = handleSortDashboardReserves(sortDesc, sortName, 'assets', preSortedReserves);
-
-  // console.log(sortedReserves, 999);
+  sortedReserves = sortedReserves.filter((item) => item.symbol !== 'WMXC');
   // sortedReserves = sortedReserves.map((item) => {
   //   item.isIsolated = false;
   //   return item;

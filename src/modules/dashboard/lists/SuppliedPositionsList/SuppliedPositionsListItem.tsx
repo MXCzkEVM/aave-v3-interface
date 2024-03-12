@@ -37,6 +37,10 @@ export const SuppliedPositionsListItem = ({
 
   const disableSwap = !isActive || reserve.symbol == 'stETH';
 
+  const wmxc = process.env.NEXT_PUBLIC_WMXC;
+  underlyingAsset =
+    underlyingAsset == wmxc ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : underlyingAsset;
+
   return (
     <ListItemWrapper
       symbol={reserve.symbol}

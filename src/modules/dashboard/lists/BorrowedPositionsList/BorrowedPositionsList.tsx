@@ -24,7 +24,7 @@ import {
   handleSortDashboardReserves,
 } from '../../../../utils/dashboardSortUtils';
 import { DashboardContentNoData } from '../../DashboardContentNoData';
-import { DashboardEModeButton } from '../../DashboardEModeButton';
+// import { DashboardEModeButton } from '../../DashboardEModeButton';
 import { ListButtonsColumn } from '../ListButtonsColumn';
 import { ListLoader } from '../ListLoader';
 import { ListTopInfoItem } from '../ListTopInfoItem';
@@ -52,7 +52,8 @@ const head = [
 
 export const BorrowedPositionsList = () => {
   const { user, loading } = useAppDataContext();
-  const { currentMarketData, currentNetworkConfig } = useProtocolDataContext();
+  // currentMarketData
+  const { currentNetworkConfig } = useProtocolDataContext();
   const theme = useTheme();
   const downToXSM = useMediaQuery(theme.breakpoints.down('xsm'));
   const [sortName, setSortName] = useState('');
@@ -147,11 +148,12 @@ export const BorrowedPositionsList = () => {
         </Typography>
       }
       localStorageName="borrowedAssetsDashboardTableCollapse"
-      subTitleComponent={
-        currentMarketData.v3 ? (
-          <DashboardEModeButton userEmodeCategoryId={user.userEmodeCategoryId} />
-        ) : undefined
-      }
+      // subTitleComponent={
+      //   currentMarketData.v3 ? (
+      //     <DashboardEModeButton userEmodeCategoryId={user.userEmodeCategoryId} />
+      //   ) : undefined
+      // }
+      subTitleComponent={undefined}
       noData={!sortedReserves.length}
       topInfo={
         <>
