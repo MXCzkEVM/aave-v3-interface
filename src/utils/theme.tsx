@@ -182,7 +182,7 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         paper: getColor('#FFFFFF', '#292E41'),
         surface: getColor('#F7F7F9', '#383D51'),
         // header: getColor('#2B2D3C', '#1B2030'),
-        header: getColor('#2a0f69', '#1B2030'),
+        header: getColor('#101010', '#1B2030'),
         disabled: getColor('#EAEBEF', '#EBEBEF14'),
       },
       divider: getColor('#EAEBEF', '#EBEBEF14'),
@@ -573,7 +573,7 @@ export function getThemedComponents(theme: Theme) {
             display: 'flex',
             flexDirection: 'column',
             flex: 1,
-            backgroundColor: '#2a0f69',
+            backgroundColor: '#101010',
             paddingBottom: '39px',
             [theme.breakpoints.up('xs')]: {
               paddingLeft: '8px',

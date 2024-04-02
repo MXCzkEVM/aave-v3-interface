@@ -2692,6 +2692,11 @@
   resolved "https://registry.npmjs.org/@metamask/safe-event-emitter/-/safe-event-emitter-2.0.0.tgz"
   integrity sha512-/kSXhY692qiV1MXu6EeOZvg5nECLclxNXcKCxJ3cXQgYuRymRHpdx/t7JXfsK+JLjwA1e1c1/SBrlQYpusC29Q==
 
+"@moonchain/metadata@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@moonchain/metadata/-/metadata-0.0.5.tgz#8cf6fec524d2da40746c537e97d9ad17299d9e5c"
+  integrity sha512-EilE0o+pb0iv/cCMpngDDYedsf7KnQmts/B9CsYYCUMx1AVhpiOUxeJVhTb10jD0xIdLvDkDjh28lPumGNUfPQ==
+
 "@mui/base@5.0.0-alpha.101":
   version "5.0.0-alpha.101"
   resolved "https://registry.yarnpkg.com/@mui/base/-/base-5.0.0-alpha.101.tgz#dba7e61716ecc946ad8cc3cba0b73796641c4022"
