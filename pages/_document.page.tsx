@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content="#00244D" />
-          <link rel="shortcut icon" href="/favicon.png" />
+          <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/MXCzkEVM/metadata/main/logo-circle.svg" />
           <link rel="manifest" href="/manifest.json" />
           {
             // Inject MUI styles first to match with the prepend: true configuration.

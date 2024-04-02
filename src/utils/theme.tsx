@@ -199,7 +199,7 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
       },
       gradients: {
         // aaveGradient: 'linear-gradient(248.86deg, #B6509E 10.51%, #2EBAC6 93.41%)',
-        aaveGradient: '#f43178',
+        aaveGradient: '#2196F3',
         newGradient: 'linear-gradient(79.67deg, #8C3EBC 0%, #007782 95.82%)',
       },
     },

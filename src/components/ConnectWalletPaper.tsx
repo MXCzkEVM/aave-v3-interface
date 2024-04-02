@@ -21,6 +21,7 @@ export const ConnectWalletPaper = ({
   return (
     <Paper
       {...rest}
+      style={{background: 'transparent', color: '#fff'}}
       sx={{
         display: 'flex',
         flexDirection: 'column',
