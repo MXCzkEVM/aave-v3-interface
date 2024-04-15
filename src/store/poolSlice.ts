@@ -171,8 +171,7 @@ export const createPoolSlice: StateCreator<
         chainId: currentChainId,
       });
       const uiIncentiveDataProviderContract = new UiIncentiveDataProvider({
-        uiIncentiveDataProviderAddress:
-          currentMarketData.addresses.UI_INCENTIVE_DATA_PROVIDER || '',
+        uiIncentiveDataProviderAddress: currentMarketData.addresses.UI_INCENTIVE_DATA_PROVIDER || '',
         provider: get().jsonRpcProvider(),
         chainId: currentChainId,
       });
@@ -263,7 +262,7 @@ export const createPoolSlice: StateCreator<
         }
         await Promise.all(promises);
       } catch (e) {
-        console.log('error fetching pool data', e);
+        console.log('error fetching pool data', {e});
       }
     },
     refreshPoolV3Data: async () => {

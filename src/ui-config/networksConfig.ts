@@ -71,9 +71,9 @@ export const networkConfigs: any = {
     networkLogoPath: '/icons/networks/mxc.svg',
     isTestnet: false,
   },
-  '5167003': {
+  '5167004': {
     name: 'Wannsee',
-    privateJsonRPCUrl: 'https://wannsee-rpc.mxc.com',
+    privateJsonRPCUrl: 'https://geneva-rpc.moonchain.com',
     publicJsonRPCUrl: [
       'https://rpc.ankr.com/eth',
       'https://rpc.flashbots.net',
@@ -88,7 +88,7 @@ export const networkConfigs: any = {
     explorerLink: 'https://wannsee-explorer.mxc.com',
     ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
     networkLogoPath: '/icons/networks/mxc.svg',
-    // isTestnet: true,
+    isTestnet: true,
   },
 
   '1337': {
