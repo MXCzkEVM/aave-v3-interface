@@ -72,7 +72,7 @@ export const networkConfigs: any = {
     isTestnet: false,
   },
   '5167004': {
-    name: 'Wannsee',
+    name: 'Geneva',
     privateJsonRPCUrl: 'https://geneva-rpc.moonchain.com',
     publicJsonRPCUrl: [
       'https://rpc.ankr.com/eth',
@@ -85,7 +85,7 @@ export const networkConfigs: any = {
     baseAssetSymbol: 'MXC',
     wrappedBaseAssetSymbol: 'WMXC',
     baseAssetDecimals: 18,
-    explorerLink: 'https://wannsee-explorer.mxc.com',
+    explorerLink: 'https://geneva-explorer.moonchain.com',
     ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
     networkLogoPath: '/icons/networks/mxc.svg',
     isTestnet: true,
@@ -103,7 +103,7 @@ export const networkConfigs: any = {
     // publicJsonRPCWSUrl: 'wss://eth-mainnet.alchemyapi.io/v2/demo',
     // baseUniswapAdapter: '0xc3efa200a60883a96ffe3d5b492b121d6e9a1f3f',
     // baseAssetDecimals: 18,
-    // explorerLink: 'https://wannsee-explorer.mxc.com',
+    // explorerLink: 'https://geneva-explorer.moonchain.com',
     // ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
     // networkLogoPath: '/icons/networks/mxc.svg',
   },

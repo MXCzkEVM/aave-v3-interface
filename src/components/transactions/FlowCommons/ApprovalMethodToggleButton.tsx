@@ -57,25 +57,6 @@ export const ApprovalMethodToggleButton = ({
         data-cy={`approveMenu_${currentMethod}`}
       >
         <MenuItem
-          data-cy={`approveOption_${ApprovalMethod.PERMIT}`}
-          selected={currentMethod === ApprovalMethod.PERMIT}
-          value={ApprovalMethod.PERMIT}
-          onClick={() => {
-            if (currentMethod === ApprovalMethod.APPROVE) {
-              setMethod(ApprovalMethod.PERMIT);
-            }
-            handleClose();
-          }}
-        >
-          <ListItemText primaryTypographyProps={{ variant: 'subheader1' }}>
-            <Trans>{ApprovalMethod.PERMIT}</Trans>
-          </ListItemText>
-          <ListItemIcon>
-            <SvgIcon>{currentMethod === ApprovalMethod.PERMIT && <CheckIcon />}</SvgIcon>
-          </ListItemIcon>
-        </MenuItem>
-
-        <MenuItem
           data-cy={`approveOption_${ApprovalMethod.APPROVE}`}
           selected={currentMethod === ApprovalMethod.APPROVE}
           value={ApprovalMethod.APPROVE}
@@ -91,6 +72,24 @@ export const ApprovalMethodToggleButton = ({
           </ListItemText>
           <ListItemIcon>
             <SvgIcon>{currentMethod === ApprovalMethod.APPROVE && <CheckIcon />}</SvgIcon>
+          </ListItemIcon>
+        </MenuItem>
+        <MenuItem
+          data-cy={`approveOption_${ApprovalMethod.PERMIT}`}
+          selected={currentMethod === ApprovalMethod.PERMIT}
+          value={ApprovalMethod.PERMIT}
+          onClick={() => {
+            if (currentMethod === ApprovalMethod.APPROVE) {
+              setMethod(ApprovalMethod.PERMIT);
+            }
+            handleClose();
+          }}
+        >
+          <ListItemText primaryTypographyProps={{ variant: 'subheader1' }}>
+            <Trans>{ApprovalMethod.PERMIT}</Trans>
+          </ListItemText>
+          <ListItemIcon>
+            <SvgIcon>{currentMethod === ApprovalMethod.PERMIT && <CheckIcon />}</SvgIcon>
           </ListItemIcon>
         </MenuItem>
       </Menu>

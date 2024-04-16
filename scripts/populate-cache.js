@@ -64398,7 +64398,7 @@ var marketsData = {
 var import_contract_helpers3 = __toESM(require_cjs());
 var networkConfigs = {
   [import_contract_helpers3.ChainId.zkevm_testnet]: {
-    name: 'Wannsee',
+    name: 'Geneva',
     privateJsonRPCUrl: 'https://eth-mainnet.gateway.pokt.network/v1/lb/62b3314e123e6f00397f19ca',
     publicJsonRPCUrl: [
       'https://rpc.ankr.com/eth',

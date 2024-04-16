@@ -111,7 +111,7 @@ export const marketsData: {
     },
   },
   [CustomMarket.proto_wannsee_v3]: {
-    marketTitle: 'Wannsee',
+    marketTitle: 'Geneva',
     // chainId: ChainId.zkevm_testnet,
     chainId: 5167004,
     v3: true,

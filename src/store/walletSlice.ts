@@ -57,7 +57,7 @@ export const createWalletSlice: StateCreator<
   setWalletModalOpen(open) {
     set({ isWalletModalOpen: open });
   },
-  walletApprovalMethodPreference: ApprovalMethod.PERMIT,
+  walletApprovalMethodPreference: ApprovalMethod.APPROVE,
   setWalletApprovalMethodPreference: (method: ApprovalMethod) => {
     const account = get().account;
     if (account !== '') {
