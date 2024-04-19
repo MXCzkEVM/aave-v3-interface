@@ -62,7 +62,7 @@ export const createWalletSlice: StateCreator<
     const account = get().account;
     if (account !== '') {
       const walletPreferencesObject = getWalletPreferences();
-      walletPreferencesObject[account.toLowerCase()] = method;
+      walletPreferencesObject[account.toLowerCase()] = ApprovalMethod.APPROVE;
       localStorage.setItem('walletApprovalPreferences', JSON.stringify(walletPreferencesObject));
       set(() => ({
         walletApprovalMethodPreference: method,

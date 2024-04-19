@@ -19,22 +19,23 @@ const ExtLinkIcon = () => (
 );
 
 export const RightHelperText = ({ approvalHash, tryPermit }: RightHelperTextProps) => {
-  const { walletApprovalMethodPreference, setWalletApprovalMethodPreference } = useRootStore();
+  const { walletApprovalMethodPreference } = useRootStore();
   const usingPermit = tryPermit && walletApprovalMethodPreference;
   const { currentNetworkConfig } = useProtocolDataContext();
   const isSigned = approvalHash === MOCK_SIGNED_HASH;
   // a signature is not submitted on-chain so there is no link to review
   if (!approvalHash && !isSigned && tryPermit)
     return (
-      <Box sx={{ display: 'inline-flex', alignItems: 'center', mb: 2 }}>
-        <Typography variant="subheader2" color="text.secondary">
-          <Trans>Approve with</Trans>&nbsp;
-        </Typography>
-        <ApprovalMethodToggleButton
-          currentMethod={walletApprovalMethodPreference}
-          setMethod={(method: ApprovalMethod) => setWalletApprovalMethodPreference(method)}
-        />
-      </Box>
+      // <Box sx={{ display: 'inline-flex', alignItems: 'center', mb: 2 }}>
+      //   <Typography variant="subheader2" color="text.secondary">
+      //     <Trans>Approve with</Trans>&nbsp;
+      //   </Typography>
+      //   <ApprovalMethodToggleButton
+      //     currentMethod={walletApprovalMethodPreference}
+      //     setMethod={(method: ApprovalMethod) => setWalletApprovalMethodPreference(method)}
+      //   />
+      // </Box>
+      null
     );
   if (approvalHash && !usingPermit)
     return (
