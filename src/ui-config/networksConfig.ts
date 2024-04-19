@@ -87,7 +87,7 @@ export const networkConfigs: any = {
     baseAssetDecimals: 18,
     explorerLink: 'https://geneva-explorer.moonchain.com',
     ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
-    networkLogoPath: '/icons/networks/mxc.svg',
+    networkLogoPath: 'https://raw.githubusercontent.com/MXCzkEVM/metadata/main/logo-circle.svg',
     isTestnet: true,
   },
 

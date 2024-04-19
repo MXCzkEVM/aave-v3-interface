@@ -33,7 +33,7 @@ export const ConnectWalletPaper = ({
         ...sx,
       }}
     >
-      <MXC style={{ marginBottom: '16px' }} />
+      <img width="140" style={{ marginBottom: '16px' }} src="https://raw.githubusercontent.com/MXCzkEVM/metadata/main/logo.svg" />
       <>
         {loading ? (
           <CircularProgress />

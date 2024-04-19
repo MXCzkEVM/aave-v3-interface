@@ -64413,7 +64413,7 @@ var networkConfigs = {
     baseAssetDecimals: 18,
     explorerLink: 'https://www.mxc.org/',
     ratesHistoryApiUrl: 'https://aave-api-v2.aave.com/data/rates-history',
-    networkLogoPath: '/icons/networks/mxc.svg',
+    networkLogoPath: 'https://raw.githubusercontent.com/MXCzkEVM/metadata/main/logo-circle.svg',
   },
   [import_contract_helpers3.ChainId.sepolia]: {
     name: "Ethereum Sepolia",
