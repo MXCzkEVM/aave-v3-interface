@@ -2,8 +2,6 @@ import { Trans } from '@lingui/macro';
 import { CircularProgress, Paper, PaperProps, Typography } from '@mui/material';
 import { ReactNode } from 'react';
 
-// import LoveGhost from '/public/loveGhost.svg';
-import MXC from '/public/mxc.svg';
 
 import { ConnectWalletButton } from './WalletConnection/ConnectWalletButton';
 
