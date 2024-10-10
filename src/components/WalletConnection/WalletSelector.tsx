@@ -24,7 +24,7 @@ const WalletRow = ({ walletName, walletType }: WalletRowProps) => {
   const getWalletIcon = (walletType: WalletType) => {
     switch (walletType) {
       case WalletType.INJECTED:
-        if (walletName == 'AXS Wallet') {
+        if (walletName == 'MoonBase') {
           return (
             <img
               src={`https://raw.githubusercontent.com/MXCzkEVM/metadata/main/logo.svg`}
