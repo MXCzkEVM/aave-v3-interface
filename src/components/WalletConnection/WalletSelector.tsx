@@ -27,10 +27,10 @@ const WalletRow = ({ walletName, walletType }: WalletRowProps) => {
         if (walletName == 'AXS Wallet') {
           return (
             <img
-              src={`/icons/wallets/axs.svg`}
+              src={`https://raw.githubusercontent.com/MXCzkEVM/metadata/main/logo.svg`}
               width="24px"
               height="24px"
-              alt={`AXS wallet icon`}
+              alt={`MoonBase icon`}
             />
           );
         } else {
@@ -203,7 +203,7 @@ export const WalletSelector = () => {
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <TxModalTitle title="Connect a wallet" />
       {error && <Warning severity="error">{handleBlocking()}</Warning>}
-      <WalletRow key="axs_wallet" walletName="AXS Wallet" walletType={WalletType.INJECTED} />
+      <WalletRow key="axs_wallet" walletName="MoonBase" walletType={WalletType.INJECTED} />
       <WalletRow
         key="browser_wallet"
         walletName="Browser wallet"

@@ -40,6 +40,12 @@ export const AddTokenDropdown = ({
   // The switchNetwork function has no return type, so to detect if a user successfully switched networks before adding token to wallet, check the selected vs connected chain id
   useEffect(() => {
     if (changingNetwork && currentChainId === connectedChainId) {
+      console.log({
+        address: poolReserve.underlyingAsset,
+        decimals: poolReserve.decimals,
+        symbol: poolReserve.symbol,
+        image: !/_/.test(poolReserve.iconSymbol) ? underlyingBase64 : undefined,
+      })
       addERC20Token({
         address: poolReserve.underlyingAsset,
         decimals: poolReserve.decimals,
